@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;1,100&family=Tangerine:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nixie+One&display=swap');
 
 body {
-    background-image: url('img/background.jpeg'), url('img/background-min.jpeg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/background.jpeg'), url('img/background-min.jpeg');
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
+    color: white;
 }
 
 main {
@@ -12,6 +14,9 @@ main {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .subheadings {
@@ -20,14 +25,30 @@ main {
     margin: 0px 50px;
 }
 
-h1,h2,h3,h4 {
+h1 {
+    font-family: 'Nixie One', cursive;
+    text-align: center;
+    color: white;
+}
+
+h2,h3,h4 {
     font-family: 'Tangerine', cursive;
     text-align: center;
     color: white;
 }
 
-h3, h4 {
+h3, h4, p, div{
     font-family: 'Montserrat Alternates', sans-serif;
+}
+
+p {
+    font-size: 20px;
+}
+
+.text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -47,4 +68,43 @@ h4 {
 
 .form-wrapper {
     flex: 1;
+}
+
+.registry-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: -50%;
+    margin-right: -50%;
+}
+
+.registry-item {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-right: 5px;
+    overflow: hidden;
+    width: 300px;
+    height: 250px;
+    font-weight: bold;
+}
+
+.registry-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.registry-item p {
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+a {
+    color: white;
 }
