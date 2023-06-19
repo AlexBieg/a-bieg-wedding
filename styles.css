@@ -14,9 +14,9 @@ main {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    width: 50%;
     margin-left: auto;
     margin-right: auto;
+    overflow-y: auto;
 }
 
 .subheadings {
@@ -53,7 +53,7 @@ p {
 
 h1 {
     font-weight: 700;
-    font-size: 120px;
+    font-size: 100px;
 }
 
 h2, h3, h4 {
@@ -70,12 +70,14 @@ h4 {
     flex: 1;
 }
 
+.text-block>p {
+    width: 50%;
+}
+
 .registry-items {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-left: -50%;
-    margin-right: -50%;
 }
 
 .registry-item {
@@ -107,4 +109,16 @@ h4 {
 
 a {
     color: white;
+}
+
+.dress-code-item{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 30px;
+    overflow: hidden;
+    max-width: 250px;
+    max-height: 400px;
+    font-weight: bold;
+    text-align: center;
 }
