@@ -122,3 +122,31 @@ a {
     font-weight: bold;
     text-align: center;
 }
+
+.itinerary {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-top: solid 1px rgba(255, 255, 255, 0.5);
+    padding-top: 20px;
+}
+
+.itinerary .itinerary-item {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+    padding-bottom: 20px;
+}
+
+.itinerary .itinerary-item-time, .itinerary .itinerary-item-title{
+    flex: 1;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.itinerary .itinerary-item-desc {
+    margin-top: 5px;
+    width: 100%;
+}
