@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <script
+      src="https://kit.fontawesome.com/62879f17d7.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>A Bieg Wedding - Photos</title>
+    <link rel="icon" type="image/png" href="img/Wedding-Icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">Home</a>
+    </header>
+    <main>
+      <div class="overlay hidden">
+        <img class="overlay-img" />
+        <a download="photo.jpg" class="download"
+          ><i class="fa fa-download"></i
+        ></a>
+      </div>
+      <div>
+        <h1>Wedding Day Photos</h1>
+        <h2 class="sneak-peak-photos-header photo-header">Sneak Peak Photos</h2>
+        <div class="sneak-peak-photos photos"></div>
+        <h2 class="disposable-photos-header photo-header">
+          Disposable Camera Photos
+        </h2>
+        <div class="disposable-photos photos"></div>
+      </div>
+    </main>
+  </body>
+  <script>
+    function setUpOverlay() {
+      const overlay = document.querySelector(".overlay");
+      overlay.onclick = () => overlay.classList.add("hidden");
+      document.querySelector(".download").onclick = (event) => {
+        event.stopPropagation();
+      };
+    }
+
+    function handleImageClick(event) {
+      document.querySelector(".overlay-img").src = event.target.src;
+      document.querySelector(".overlay").classList.remove("hidden");
+      document.querySelector(".download").setAttribute('href', event.target.src);
+    }
+
+    function loadSneakPeakPhotos() {
+      const wrapper = document.querySelector(".sneak-peak-photos");
+      for (n = 1; n <= 125; n++) {
+        const fileName = String(n).padStart(3, "0") + ".jpg";
+        const img = document.createElement("img");
+        img.src = `wedding-photos/sneak-peak/${fileName}`;
+        img.onclick = handleImageClick;
+        wrapper.appendChild(img);
+      }
+
+      const header = document.querySelector(".sneak-peak-photos-header");
+      header.onclick = () => wrapper.classList.toggle("hidden");
+    }
+
+    function loadDisposablePhotos() {
+      const wrapper = document.querySelector(".disposable-photos");
+      for (n = 69531; n <= 69646; n++) {
+        const img = document.createElement("img");
+        img.src = `wedding-photos/disposable/Scan${n}.jpg`;
+        // We don't have all sequential photos so just remove the ones that can't find the photo
+        img.onerror = (e) => {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          e.stopPropagation();
+          wrapper.removeChild(img);
+        };
+        img.onclick = handleImageClick;
+        wrapper.appendChild(img);
+      }
+      const header = document.querySelector(".disposable-photos-header");
+      header.onclick = () => wrapper.classList.toggle("hidden");
+    }
+
+    loadSneakPeakPhotos();
+    loadDisposablePhotos();
+    setUpOverlay();
+  </script>
+</html>
