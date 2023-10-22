@@ -4,6 +4,7 @@
       src="https://kit.fontawesome.com/62879f17d7.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/blazy@1.8.2/blazy.min.js"></script>
     <title>A Bieg Wedding - Photos</title>
     <link rel="icon" type="image/png" href="img/Wedding-Icon.png" />
     <link rel="stylesheet" href="styles.css" />
@@ -31,6 +32,7 @@
     </main>
   </body>
   <script>
+    var bLazy = new Blazy();
     function setUpOverlay() {
       const overlay = document.querySelector(".overlay");
       overlay.onclick = () => overlay.classList.add("hidden");
@@ -50,8 +52,10 @@
       for (n = 1; n <= 125; n++) {
         const fileName = String(n).padStart(3, "0") + ".jpg";
         const img = document.createElement("img");
-        img.src = `wedding-photos/sneak-peak/${fileName}`;
+        img.setAttribute('data-src', `wedding-photos/sneak-peak/${fileName}`);
         img.onclick = handleImageClick;
+        img.classList.add('b-lazy');
+        img.src = 'img/Wedding-Icon.png';
         wrapper.appendChild(img);
       }
 
@@ -62,8 +66,13 @@
     function loadDisposablePhotos() {
       const wrapper = document.querySelector(".disposable-photos");
       for (n = 69531; n <= 69646; n++) {
+        if (n === 69556) n = 69595;
+        if (n === 69640) n = 69641;
+
         const img = document.createElement("img");
-        img.src = `wedding-photos/disposable/Scan${n}.jpg`;
+        img.setAttribute('data-src', `wedding-photos/disposable/Scan${n}.jpg`);
+        img.src = 'img/Wedding-Icon.png';
+        img.classList.add('b-lazy')
         // We don't have all sequential photos so just remove the ones that can't find the photo
         img.onerror = (e) => {
           e.preventDefault();
@@ -81,5 +90,12 @@
     loadSneakPeakPhotos();
     loadDisposablePhotos();
     setUpOverlay();
+  </script>
+  <script>
+    (function() {
+      const blazy = new Blazy({
+        container: 'main',
+      });
+    })();
   </script>
 </html>
