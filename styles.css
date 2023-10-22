@@ -151,16 +151,13 @@ a {
     width: 100%;
 }
 
-.photos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
 .photos img {
-    height: 400px;
+    width: 50%;
     object-fit: contain;
     margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .photos img:hover, .photo-header:hover, .overlay, .overlay-img {
